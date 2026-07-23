@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHI | PT. SEO HEUNG INDORAYA — Total Solution Provider</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<!--
+  ========================================================================
+  CARA EDIT FILE INI (cari tanda ✏️ di sepanjang file)
+  ------------------------------------------------------------------------
+  • Teks         : ubah tulisan yang ada DI ANTARA tanda >  dan  <
+                   contoh:  <h3>Shoe Material</h3>  ->  <h3>Bahan Sepatu</h3>
+  • Warna brand  : ubah 1 baris --accent di blok :root (lihat ✏️ BRAND COLOR)
+  • Link menu    : ubah href="#id" dan teksnya (lihat ✏️ MENU)
+  • Kontak       : alamat / tel: / mailto: (lihat ✏️ CONTACT & footer)
+  • Logo         : ganti bagian <svg> di dalam <a class="brand"> (lihat ✏️ LOGO)
+  • JANGAN ubah bagian di dalam { } pada <style> kecuali paham CSS.
+  • Simpan file, lalu buka di browser (klik 2x) atau seret ke Netlify.
+  ========================================================================
+-->
+<style>
+  :root{
+    --ink:#1B1B2A;
+    --ink-soft:#3B3B4E;
+    --muted:#6E6E86;
+    --line:#E7E6F0;
+    --bg:#FFFFFF;
+    --bg-alt:#F4F3FA;
+    /* ✏️ BRAND COLOR — ganti 1 hex ini untuk mewarnai ulang seluruh situs */
+    --accent:#574E9E;        /* PANTONE 2368C */
+    --accent-deep:#332F63;
+    --accent-2:#7A72CC;
+    --accent-soft:#ECEAF7;
+    --brand-dark:#2A2856;
+    --teal:#3FC0D4;
+    /* key-business legend colors (from catalog) */
+    --biz-proc:#46B888;
+    --biz-mold:#E24B4B;
+    --biz-mach:#5B7BE0;
+    --biz-cons:#C86BD0;
+    --gutter:clamp(1.25rem,5vw,5rem);
+    --maxw:1280px;
+    --fs-display:clamp(2.3rem,5.8vw,4.9rem);
+    --fs-h2:clamp(1.8rem,3.6vw,3.1rem);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;letter-spacing:-.01em;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+  h1,h2,h3{font-weight:800;line-height:1.08;letter-spacing:-.03em}
+
+  .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.6em}
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);display:inline-block}
+
+  /* ---------- HEADER ---------- */
+  header{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--gutter);transition:background .3s,box-shadow .3s,padding .3s}
+  header.scrolled{background:rgba(255,255,255,.93);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding-block:.85rem}
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:900;font-size:1.25rem;letter-spacing:.02em;color:#fff;transition:color .3s}
+  header.scrolled .brand{color:var(--accent)}
+  .brand .lt{transition:fill .3s}
+  header.scrolled .brand .lt{fill:var(--accent)}
+  nav.main{display:flex;gap:1.9rem;align-items:center;font-size:.92rem;font-weight:600}
+  nav.main a{color:rgba(255,255,255,.9);transition:color .2s}
+  header.scrolled nav.main a{color:var(--ink-soft)}
+  nav.main a:hover{color:#fff}
+  header.scrolled nav.main a:hover{color:var(--accent)}
+  .nav-cta{border:1.5px solid rgba(255,255,255,.5);padding:.5rem 1rem;border-radius:100px;transition:all .2s}
+  header.scrolled .nav-cta{border-color:var(--line)}
+  .nav-cta:hover{background:var(--accent);border-color:var(--accent);color:#fff!important}
+  .menu-btn{display:none;background:none;border:0;color:#fff;font-weight:700;font-size:.85rem;letter-spacing:.1em;cursor:pointer;transition:color .3s}
+  header.scrolled .menu-btn{color:var(--accent)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:94svh;display:flex;align-items:center;padding:9rem var(--gutter) 4rem;color:#fff;overflow:hidden;
+    background:linear-gradient(120deg,#2C2860 0%,#413C8C 48%,#574E9E 100%);}
+  .hero .arcs{position:absolute;top:-15%;right:-10%;width:min(80vw,900px);height:min(80vw,900px);z-index:0;opacity:.9}
+  .hero .grid-ovl{position:absolute;inset:0;z-index:0;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(90% 80% at 20% 60%,#000,transparent 78%);-webkit-mask-image:radial-gradient(90% 80% at 20% 60%,#000,transparent 78%)}
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero .eyebrow{color:#9FE8F2}
+  .hero .eyebrow::before{background:var(--teal)}
+  .hero h1{font-size:var(--fs-display);font-weight:900;max-width:15ch;margin:1.6rem 0 1.3rem}
+  .hero .sub{font-size:clamp(1.05rem,2vw,1.5rem);font-weight:700;color:rgba(255,255,255,.9);max-width:26ch}
+  .hero .sub .tsp{color:var(--teal)}
+  .hero .btn-row{margin-top:2.6rem;display:flex;flex-wrap:wrap;gap:1rem}
+  .hero .foot-note{position:absolute;right:var(--gutter);bottom:2.4rem;z-index:2;text-align:right;font-size:.72rem;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;line-height:1.9}
+
+  .btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:.98rem;padding:.95rem 1.7rem;border-radius:100px;transition:transform .2s,background .2s,color .2s,border-color .2s}
+  .btn .ar{transition:transform .25s}
+  .btn:hover .ar{transform:translateX(4px)}
+  .btn-primary{background:#fff;color:var(--accent)}
+  .btn-primary:hover{background:var(--teal);color:#0C2A2E}
+  .btn-accent{background:var(--accent);color:#fff}
+  .btn-accent:hover{background:var(--accent-deep)}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+  .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative}
+  .pad{padding-block:clamp(4.5rem,10vw,8.5rem)}
+  .anchor{scroll-margin-top:80px}
+  .alt{background:var(--bg-alt)}
+  .dark{background:var(--brand-dark);color:#fff}
+
+  /* statement */
+  .statement{text-align:center}
+  .statement h2{font-size:var(--fs-h2);max-width:20ch;margin:1.4rem auto 0}
+  .statement h2 .hl{color:var(--accent)}
+  .statement p{margin:1.8rem auto 0;max-width:54ch;font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--muted);font-weight:500}
+  .statement .ew{display:flex;justify-content:center}
+
+  /* core value strip */
+  .cv-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3rem;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .cv{padding:1.8rem;border-right:1px solid var(--line);text-align:left}
+  .cv:last-child{border-right:0}
+  .cv .n{font-weight:800;font-size:.82rem;color:var(--accent-2);letter-spacing:.06em}
+  .cv h3{font-size:1.15rem;margin:.7rem 0 .4rem}
+  .cv p{color:var(--muted);font-size:.92rem;font-weight:500}
+
+  /* total solution provider (catalog page 4) */
+  .tsp-sec{overflow:hidden}
+  .tsp-sec .halftone{position:absolute;left:0;bottom:0;width:min(46vw,520px);height:min(38vw,420px);z-index:0;
+    background-image:radial-gradient(circle,rgba(255,255,255,.5) 1.4px,transparent 1.6px);background-size:15px 15px;
+    mask-image:radial-gradient(120% 120% at 0% 100%,#000,transparent 62%);-webkit-mask-image:radial-gradient(120% 120% at 0% 100%,#000,transparent 62%);opacity:.5}
+  .tsp-sec .wrap{position:relative;z-index:2}
+  .tsp-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+  .tsp-left h2{font-size:clamp(2rem,4.2vw,3.6rem);line-height:1.05}
+  .tsp-left p{margin-top:1.4rem;color:rgba(255,255,255,.72);font-weight:500;max-width:26ch;font-size:1.05rem}
+  .tsp-list{display:flex;flex-direction:column}
+  .tsp-item{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,.16)}
+  .tsp-item:first-child{border-top:1px solid rgba(255,255,255,.16)}
+  .tsp-item .idx{font-weight:800;color:var(--teal);font-size:1rem;padding-top:.2rem}
+  .tsp-item h3{font-size:1.35rem}
+  .tsp-item .tags{margin-top:.5rem;color:rgba(255,255,255,.66);font-size:.95rem;font-weight:500}
+
+  /* products */
+  .prod-head{max-width:46ch;margin-bottom:2.6rem}
+  .prod-head h2{font-size:var(--fs-h2);margin-top:1.1rem}
+  .prod-head p{margin-top:1rem;color:var(--muted);font-weight:500}
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .pcell{background:#fff;padding:1.6rem 1.4rem 1.8rem;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;transition:background .25s}
+  .pcell:hover{background:var(--accent-soft)}
+  .pcell .n{font-size:.82rem;font-weight:700;color:var(--accent-2);letter-spacing:.06em}
+  .pcell h3{font-size:1.1rem;font-weight:700;margin-top:1.1rem;letter-spacing:-.02em}
+  .pcell:hover h3{color:var(--accent)}
+
+  /* global network */
+  .gn-head{max-width:44ch;margin-bottom:3rem}
+  .gn-head h2{font-size:var(--fs-h2);margin-top:1.1rem}
+  .gn-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:stretch}
+  .gn-stats{background:#fff;border:1px solid var(--line);border-radius:16px;padding:2rem}
+  .gn-nums{display:flex;gap:1.6rem;flex-wrap:wrap}
+  .gn-num .big{font-size:2.6rem;font-weight:800;color:var(--accent);line-height:1}
+  .gn-num .lbl{font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.2rem}
+  .gn-legend{margin-top:1.8rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+  .gn-legend .t{font-weight:800;font-size:.9rem;margin-bottom:.9rem}
+  .gn-legend ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .gn-legend li{display:flex;align-items:center;gap:.55rem;font-size:.9rem;font-weight:600;color:var(--ink-soft)}
+  .dotc{width:11px;height:11px;border-radius:50%;flex:none}
+  .countries{display:flex;flex-direction:column;gap:.7rem}
+  .country{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.3rem;transition:border-color .25s,transform .25s}
+  .country:hover{border-color:var(--accent-2);transform:translateX(4px)}
+  .country.home{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .country .c-l{display:flex;align-items:center;gap:.9rem}
+  .country .flag{width:30px;height:22px;border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#fff;background:rgba(0,0,0,.12)}
+  .country.home .flag{background:rgba(255,255,255,.2)}
+  .country .c-name{font-weight:700}
+  .country .c-code{font-size:.82rem;font-weight:700;color:var(--accent-2)}
+  .country.home .c-code{color:#fff;opacity:.85}
+  .country .c-dots{display:flex;gap:.4rem}
+
+  /* why shi */
+  .why-head{max-width:40ch;margin-bottom:2.8rem}
+  .why-head h2{font-size:var(--fs-h2);margin-top:1.1rem}
+  .why-head h2 .hl{color:var(--accent)}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .why-card{border:1px solid var(--line);border-radius:14px;padding:1.7rem 1.5rem;background:#fff;transition:transform .3s,box-shadow .3s}
+  .why-card:hover{transform:translateY(-6px);box-shadow:0 22px 45px -22px rgba(43,40,86,.35)}
+  .why-card .ic{width:44px;height:44px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+  .why-card h3{font-size:1.12rem;margin-bottom:.55rem}
+  .why-card p{color:var(--muted);font-size:.93rem;font-weight:500}
+
+  /* location */
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:stretch}
+  .loc-info h2{font-size:var(--fs-h2);margin:1.1rem 0 1.5rem}
+  .loc-info .addr{font-size:1.08rem;color:var(--ink-soft);font-weight:500;max-width:34ch;line-height:1.7}
+  .loc-rows{margin-top:1.8rem;border-top:1px solid var(--line)}
+  .loc-rows .r{display:flex;gap:1.5rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+  .loc-rows .r .k{width:5.5rem;flex:none;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .loc-rows .r a{font-weight:600}
+  .loc-rows .r a:hover{color:var(--accent)}
+  .map{border-radius:16px;overflow:hidden;min-height:320px;position:relative;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;color:#fff}
+  .map::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.16) 1.4px,transparent 1.6px);background-size:18px 18px;mask-image:radial-gradient(120% 120% at 100% 0%,#000,transparent 60%);-webkit-mask-image:radial-gradient(120% 120% at 100% 0%,#000,transparent 60%)}
+  .map .pin{position:relative;z-index:2}
+  .map .pin .dot{width:20px;height:20px;border-radius:50%;background:var(--teal);margin:0 auto .8rem;box-shadow:0 0 0 8px rgba(63,192,212,.24)}
+  .map .pin .city{font-weight:800;font-size:1.25rem}
+  .map .pin a{display:inline-block;margin-top:.9rem;font-weight:700;color:var(--teal)}
+
+  /* cta */
+  .cta{text-align:center;overflow:hidden}
+  .cta .arcs{position:absolute;bottom:-40%;left:-8%;width:min(70vw,700px);height:min(70vw,700px);z-index:0;opacity:.5}
+  .cta .wrap{position:relative;z-index:2}
+  .cta h2{font-size:clamp(2rem,5vw,4rem);font-weight:900;max-width:16ch;margin:1.4rem auto 0}
+  .cta p{margin:1.4rem auto 0;color:rgba(255,255,255,.75);max-width:42ch;font-weight:500;font-size:1.08rem}
+  .cta .btn-row{margin-top:2.4rem;display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+  .cta .eyebrow{color:#9FE8F2}.cta .eyebrow::before{background:var(--teal)}
+  .cta .ew{display:flex;justify-content:center}
+
+  /* footer */
+  footer{background:#181733;color:#fff;padding-block:3.4rem}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:2.4rem}
+  .foot-brand .brand{color:#fff;margin-bottom:1rem}
+  .foot-brand p{color:#9B9BB5;font-size:.92rem;max-width:32ch}
+  .foot-col h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8A8AA8;font-weight:700;margin-bottom:1rem}
+  .foot-col p,.foot-col a{display:block;color:#C7C7DC;font-size:.92rem;margin-bottom:.5rem}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{margin-top:2.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;color:#8A8AA8;font-size:.82rem;font-weight:500}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* responsive */
+  @media (max-width:980px){
+    .tsp-grid{grid-template-columns:1fr;gap:2.4rem}
+    .gn-grid{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:repeat(2,1fr)}
+    .prod-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:820px){
+    nav.main{display:none}.menu-btn{display:block}
+    header.open nav.main{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1.4rem var(--gutter);gap:1.2rem;box-shadow:0 12px 30px -16px rgba(0,0,0,.25)}
+    header.open nav.main a{color:var(--ink)}
+    .cv-strip{grid-template-columns:1fr}.cv{border-right:0;border-bottom:1px solid var(--line)}
+    .loc-grid{grid-template-columns:1fr}
+    .hero .foot-note{display:none}
+  }
+  @media (max-width:480px){
+    .why-grid,.prod-grid{grid-template-columns:1fr}
+    .gn-legend ul{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ✏️ LOGO: ganti seluruh <svg>...</svg> di bawah dengan logo aslimu.
+     Untuk pakai file gambar: hapus <svg>...</svg> lalu isi
+     <img src="logo.png" alt="SHI" style="height:30px">  (taruh logo.png di folder yang sama) -->
+<header id="site-header">
+  <a class="brand" href="#top" aria-label="SHI home">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+      <circle cx="6" cy="6" r="3" fill="#3FC0D4"/>
+      <circle class="lt" cx="24" cy="6" r="2.4" fill="#fff"/>
+      <circle class="lt" cx="15" cy="15" r="2.4" fill="#fff"/>
+      <circle class="lt" cx="6" cy="24" r="2.4" fill="#fff"/>
+      <circle cx="24" cy="24" r="3" fill="#3FC0D4"/>
+      <path d="M6 6 L15 15 L24 24 M15 15 L24 6 M15 15 L6 24" stroke="#9F97E0" stroke-width="1" opacity=".7"/>
+    </svg>
+    SHI
+  </a>
+  <!-- ✏️ MENU: ubah teks tiap link; href="#about" melompat ke bagian id="about" -->
+  <nav class="main" id="nav">
+    <a href="#about">About</a>
+    <a href="#solution">Solutions</a>
+    <a href="#products">Products</a>
+    <a href="#global">Global</a>
+    <a href="#why">Why SHI</a>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </nav>
+  <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">MENU</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="arcs" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+    <path d="M600 0 A600 600 0 0 1 0 600" stroke="#3FC0D4" stroke-width="1.5" opacity=".55"/>
+    <path d="M600 120 A480 480 0 0 1 120 600" stroke="#9F97E0" stroke-width="1.5" opacity=".4"/>
+    <path d="M600 260 A340 340 0 0 1 260 600" stroke="#3FC0D4" stroke-width="1.5" opacity=".3"/>
+    <path d="M600 380 A220 220 0 0 1 380 600" stroke="#fff" stroke-width="1.5" opacity=".18"/>
+  </svg>
+  <div class="grid-ovl" aria-hidden="true"></div>
+  <div class="wrap">
+    <!-- ✏️ HERO: ubah label kecil, judul <h1>, dan sub-teks di bawah -->
+    <span class="eyebrow">PT. Seo Heung Indoraya · Part of SHC Global</span>
+    <h1>We Lead to Possibilities Beyond Connection</h1>
+    <p class="sub">Start Here, Shift Higher. Connect Ahead. — <span class="tsp">Total Solution Provider.</span></p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#about">Explore SHI <span class="ar">→</span></a>
+      <a class="btn btn-outline" href="#contact">Contact us</a>
+    </div>
+  </div>
+  <div class="foot-note" aria-hidden="true">SHC · Total Solution Provider<br>Manufacturing &amp; Distribution</div>
+</section>
+
+<!-- ABOUT / STATEMENT + CORE VALUES -->
+<section class="pad statement anchor" id="about">
+  <div class="wrap">
+    <div class="ew reveal"><span class="eyebrow">Who we are</span></div>
+    <h2 class="reveal">SHI goes <span class="hl">beyond manufacturing.</span></h2>
+    <p class="reveal">We connect people, technology, and opportunities to create value beyond connection — building global standards in manufacturing and distribution as the Indonesian arm of SHC Global.</p>
+    <div class="cv-strip reveal">
+      <div class="cv"><div class="n">01</div><h3>Start Here</h3><p>The sign of change begins here — with a first, deliberate move.</p></div>
+      <div class="cv"><div class="n">02</div><h3>Shift Higher</h3><p>We leap higher by lifting the partners we work with.</p></div>
+      <div class="cv"><div class="n">03</div><h3>Connect Ahead</h3><p>Leading connections to the future, one link at a time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOTAL SOLUTION PROVIDER -->
+<section class="pad dark tsp-sec anchor" id="solution">
+  <div class="halftone" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="tsp-grid">
+      <div class="tsp-left reveal">
+        <span class="eyebrow" style="color:#9FE8F2">What we do</span>
+        <h2 style="margin-top:1.1rem">Total Solution<br>Provider</h2>
+        <p>Supporting every stage of the manufacturing and distribution industry.</p>
+      </div>
+      <div class="tsp-list reveal">
+        <div class="tsp-item"><span class="idx">01</span><div><h3>Material Procurement</h3><div class="tags">Raw &amp; subsidiary materials · MRO</div></div></div>
+        <div class="tsp-item"><span class="idx">02</span><div><h3>Mold &amp; Injection</h3><div class="tags">Mold making · Injection manufacturing</div></div></div>
+        <div class="tsp-item"><span class="idx">03</span><div><h3>Equipment &amp; Spare</h3><div class="tags">Machinery supply · Intermediary trade</div></div></div>
+        <div class="tsp-item"><span class="idx">04</span><div><h3>Construction</h3><div class="tags">Design, build &amp; supervision · Safety diagnosis</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="pad alt anchor" id="products">
+  <div class="wrap">
+    <div class="prod-head reveal">
+      <span class="eyebrow">What we supply</span>
+      <h2>Product lines</h2>
+      <p>Eight categories spanning footwear materials, industrial supply, and facilities.</p>
+    </div>
+    <!-- ✏️ PRODUCTS: ganti nama di <h3>. Untuk membuat kartu bisa diklik,
+         ubah <div class="pcell"> menjadi <a href="URL-tujuan" class="pcell"> ... </a> -->
+    <div class="prod-grid reveal">
+      <div class="pcell"><span class="n">01</span><h3>Our Brand Products</h3></div>
+      <div class="pcell"><span class="n">02</span><h3>Shoe Material</h3></div>
+      <div class="pcell"><span class="n">03</span><h3>Industrial Consumable</h3></div>
+      <div class="pcell"><span class="n">04</span><h3>Industrial Spare Parts</h3></div>
+      <div class="pcell"><span class="n">05</span><h3>Safety Equipment</h3></div>
+      <div class="pcell"><span class="n">06</span><h3>Office Supplies</h3></div>
+      <div class="pcell"><span class="n">07</span><h3>Construction Material</h3></div>
+      <div class="pcell"><span class="n">08</span><h3>Machinery</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL NETWORK -->
+<section class="pad anchor" id="global">
+  <div class="wrap">
+    <div class="gn-head reveal">
+      <span class="eyebrow">Global network</span>
+      <h2>Building global standards through a connected network.</h2>
+    </div>
+    <div class="gn-grid">
+      <div class="gn-stats reveal">
+        <div class="gn-nums">
+          <div class="gn-num"><div class="big">3</div><div class="lbl">Branches</div></div>
+          <div class="gn-num"><div class="big">2</div><div class="lbl">Offices</div></div>
+          <div class="gn-num"><div class="big">2</div><div class="lbl">Factories</div></div>
+        </div>
+        <div class="gn-legend">
+          <div class="t">4 Key Business</div>
+          <ul>
+            <li><span class="dotc" style="background:var(--biz-proc)"></span>Procurement</li>
+            <li><span class="dotc" style="background:var(--biz-mold)"></span>Mold Production</li>
+            <li><span class="dotc" style="background:var(--biz-mach)"></span>Machinery Biz</li>
+            <li><span class="dotc" style="background:var(--biz-cons)"></span>Construction</li>
+          </ul>
+        </div>
+      </div>
+      <div class="countries reveal">
+        <div class="country">
+          <div class="c-l"><span class="flag">KR</span><span class="c-name">South Korea</span></div>
+          <div class="c-l"><span class="c-code">SHK</span><span class="c-dots"><span class="dotc" style="background:var(--biz-proc)"></span><span class="dotc" style="background:var(--biz-mold)"></span><span class="dotc" style="background:var(--biz-mach)"></span><span class="dotc" style="background:var(--biz-cons)"></span></span></div>
+        </div>
+        <div class="country">
+          <div class="c-l"><span class="flag">TW</span><span class="c-name">Taiwan</span></div>
+          <div class="c-l"><span class="c-code">SHT</span><span class="c-dots"><span class="dotc" style="background:var(--biz-proc)"></span></span></div>
+        </div>
+        <div class="country">
+          <div class="c-l"><span class="flag">VN</span><span class="c-name">Vietnam</span></div>
+          <div class="c-l"><span class="c-code">SHV</span><span class="c-dots"><span class="dotc" style="background:var(--biz-proc)"></span><span class="dotc" style="background:var(--biz-mold)"></span><span class="dotc" style="background:var(--biz-mach)"></span><span class="dotc" style="background:var(--biz-cons)"></span></span></div>
+        </div>
+        <div class="country home">
+          <div class="c-l"><span class="flag">ID</span><span class="c-name">Indonesia</span></div>
+          <div class="c-l"><span class="c-code">SHI · CSTI</span><span class="c-dots"><span class="dotc" style="background:#fff"></span><span class="dotc" style="background:#fff"></span><span class="dotc" style="background:#fff"></span><span class="dotc" style="background:#fff"></span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SHI -->
+<section class="pad alt anchor" id="why">
+  <div class="wrap">
+    <div class="why-head reveal">
+      <span class="eyebrow">Why SHI</span>
+      <h2>Everything industrial, <span class="hl">together with SHI.</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#574E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <h3>Integrated One-Stop</h3><p>Materials, molds, equipment, MRO, and construction — supported from a single platform.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#574E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+        <h3>Global Partner Network</h3><p>Collaboration across Korea, Taiwan, Vietnam, and Indonesia opens wider partnerships.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#574E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Custom &amp; Tech Transfer</h3><p>Tailored products and technology-based service, refined over decades of experience.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#574E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.5 9C7.5 19.5 4 17 4 12V6l8-3 8 3z"/></svg></div>
+        <h3>Quality &amp; Delivery</h3><p>Strict inspection and on-time delivery — a supply you can rely on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="pad anchor" id="contact">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div class="loc-info reveal">
+        <span class="eyebrow">Location &amp; Contact</span>
+        <h2>Find us in Karawang.</h2>
+        <!-- ✏️ CONTACT: perbarui alamat, nomor (tel:...), dan email (mailto:...) di bawah. Cek juga bagian footer -->
+        <p class="addr">Jl. Ir. H. Juanda No. 08, RT.001 RW.005, Ds. Jomin Barat, Kota Baru, Karawang, West Java, Indonesia.</p>
+        <div class="loc-rows">
+          <div class="r"><span class="k">Tel</span><a href="tel:+622647501003">(0264) 7501003</a></div>
+          <div class="r"><span class="k">Email</span><a href="mailto:shi_local@shcglobal.co.kr">shi_local@shcglobal.co.kr</a></div>
+          <div class="r"><span class="k">Careers</span><a href="mailto:shi_local@shcglobal.co.kr?subject=Career%20at%20SHI">Join our team →</a></div>
+        </div>
+      </div>
+      <div class="map reveal">
+        <div class="pin">
+          <div class="dot"></div>
+          <div class="city">Karawang, West Java</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Ir.+H.+Juanda+No.+08+Jomin+Barat+Kota+Baru+Karawang" target="_blank" rel="noopener">Open in Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pad dark cta">
+  <svg class="arcs" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+    <path d="M0 600 A600 600 0 0 1 600 0" stroke="#3FC0D4" stroke-width="1.5" opacity=".4"/>
+    <path d="M0 480 A480 480 0 0 1 480 0" stroke="#9F97E0" stroke-width="1.5" opacity=".3"/>
+  </svg>
+  <div class="wrap">
+    <div class="ew reveal"><span class="eyebrow">Get in touch</span></div>
+    <h2 class="reveal">Let's build the connection.</h2>
+    <p class="reveal">From footwear materials to full industrial supply, SHI is ready to link your needs to a reliable source.</p>
+    <div class="btn-row reveal">
+      <a class="btn btn-primary" href="mailto:shi_local@shcglobal.co.kr">Start a conversation <span class="ar">→</span></a>
+      <a class="btn btn-outline" href="tel:+622647501003">Call (0264) 7501003</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <circle cx="6" cy="6" r="3" fill="#3FC0D4"/><circle cx="24" cy="6" r="2.4" fill="#fff"/>
+            <circle cx="15" cy="15" r="2.4" fill="#fff"/><circle cx="6" cy="24" r="2.4" fill="#fff"/>
+            <circle cx="24" cy="24" r="3" fill="#3FC0D4"/>
+            <path d="M6 6 L15 15 L24 24 M15 15 L24 6 M15 15 L6 24" stroke="#9F97E0" stroke-width="1" opacity=".7"/>
+          </svg>
+          SHI
+        </a>
+        <p>PT. Seo Heung Indoraya — a Total Solution Provider connecting people, technology, and opportunities. Part of SHC Global.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Address</h4>
+        <p>Jl. Ir. H. Juanda No. 08<br>RT.001 RW.005, Ds. Jomin Barat<br>Kota Baru, Karawang<br>West Java, Indonesia</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+622647501003">(0264) 7501003</a>
+        <a href="mailto:shi_local@shcglobal.co.kr">shi_local@shcglobal.co.kr</a>
+        <a href="#products">Products</a>
+        <a href="#global">Global network</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>COPYRIGHT © 2025 PT. SEO HEUNG INDORAYA. ALL RIGHTS RESERVED.</span>
+      <span>Start Here · Shift Higher · Connect Ahead</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var header = document.getElementById("site-header");
+  function onScroll(){ header.classList.toggle("scrolled", window.scrollY > 40); }
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+  var menuBtn = document.getElementById("menu-btn");
+  menuBtn.addEventListener("click", function(){
+    var open = header.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.querySelectorAll("#nav a").forEach(function(a){
+    a.addEventListener("click", function(){ header.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); });
+  });
+  var revs = document.querySelectorAll(".reveal");
+  if(reduce || !("IntersectionObserver" in window)){
+    revs.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold:.14, rootMargin:"0px 0px -6% 0px"});
+    revs.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
