@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product — PT. Seo Heung Indoraya</title>
+<meta name="description" content="Product category detail — PT. Seo Heung Indoraya (SHI).">
+<style>
+:root{
+  --violet:#574E9E;--violet-deep:#332F63;--violet-light:#7A72CC;
+  --teal:#3FC0D4;--paper:#F5F4FA;--ink:#1B1B2A;--white:#fff;
+  --line:rgba(27,27,42,.12);--line-light:rgba(255,255,255,.16);
+  --muted:rgba(27,27,42,.62);--muted-light:rgba(255,255,255,.72);
+  --lime:#CDF24E;--r:14px;--max:1120px;
+  --pad-x:clamp(18px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:var(--max);margin:0 auto;padding:12px var(--pad-x);display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand b{font-size:.92rem;font-weight:800;letter-spacing:.02em}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--violet)}
+.back{margin-left:auto;font-size:.86rem;font-weight:600;color:var(--violet);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.back:hover{color:var(--violet-deep)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;font:inherit;font-size:.76rem;font-weight:700;padding:6px 12px;cursor:pointer;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--violet);color:#fff}
+
+/* hero banner */
+.phero{color:#fff;padding:clamp(30px,6vw,64px) 0 clamp(26px,4vw,44px)}
+.phero .eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.8);display:block;margin-bottom:14px}
+.phero h1{font-size:clamp(1.9rem,4.6vw,3.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;max-width:16ch}
+.phero .plead{margin-top:16px;font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(255,255,255,.88);max-width:50ch;line-height:1.6}
+.crumb{font-size:.8rem;color:rgba(255,255,255,.7);margin-bottom:20px}
+.crumb a{color:rgba(255,255,255,.85);text-decoration:none}
+.crumb a:hover{color:#fff}
+
+/* body */
+main{padding:clamp(30px,5vw,56px) 0 clamp(40px,6vw,72px)}
+.grid{display:grid;grid-template-columns:1.6fr .9fr;gap:clamp(28px,4vw,56px);align-items:start}
+@media(max-width:860px){.grid{grid-template-columns:1fr;gap:32px}}
+.lbl{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);display:block;margin-bottom:14px}
+.sec{margin-bottom:clamp(28px,4vw,44px)}
+.sec p{color:var(--muted);font-size:.98rem;line-height:1.75;margin-bottom:12px}
+.ph-note{font-size:.8rem;color:rgba(27,27,42,.4);font-style:italic}
+ul.items{list-style:none;display:grid;gap:10px}
+ul.items li{display:flex;gap:11px;align-items:flex-start;font-size:.95rem;color:var(--muted);padding:9px 0;border-top:1px solid var(--line)}
+ul.items li::before{content:"";flex:none;width:7px;height:7px;margin-top:8px;border-radius:50%;background:var(--teal)}
+
+/* aside card */
+.card{border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 22px;background:var(--paper);position:sticky;top:86px}
+.spec{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.spec:last-of-type{border-bottom:0}
+.spec span{color:var(--muted)}
+.spec b{font-weight:700;text-align:right}
+.cta{display:block;text-align:center;margin-top:18px;background:var(--violet);color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;padding:13px 18px;border-radius:999px;transition:background .2s ease}
+.cta:hover{background:var(--violet-deep)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.chip{font-size:.8rem;font-weight:600;color:var(--violet-deep);background:rgba(87,78,158,.09);border:1px solid rgba(87,78,158,.18);padding:6px 13px;border-radius:999px}
+
+/* other products */
+.more{border-top:1px solid var(--line);margin-top:clamp(30px,4vw,48px);padding-top:clamp(24px,3vw,34px)}
+.more-grid{display:flex;flex-wrap:wrap;gap:9px}
+.more-grid a{font-size:.86rem;font-weight:600;color:var(--violet-deep);text-decoration:none;background:var(--paper);border:1px solid var(--line);padding:9px 15px;border-radius:999px;transition:background .18s ease,transform .18s ease}
+.more-grid a:hover{background:#ecebf6;transform:translateY(-1px)}
+.more-grid a[aria-current="true"]{background:var(--violet);color:#fff;border-color:var(--violet)}
+
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.82rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html"><span class="dot"></span><b>PT. SEO HEUNG INDORAYA</b></a>
+    <a class="back" href="index.html#products">← <span data-en="All products" data-ko="전체 제품">All products</span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="btn-en" aria-pressed="true">EN</button>
+      <button type="button" id="btn-ko" aria-pressed="false">한국어</button>
+    </div>
+  </div>
+</header>
+
+<section class="phero" id="phero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Home</a> · <a href="index.html#products" data-en="Products" data-ko="제품">Products</a> · <span id="crumb-name">—</span></p>
+    <span class="eyebrow" id="p-cat">Product</span>
+    <h1 id="p-name">—</h1>
+    <p class="plead" id="p-desc">—</p>
+  </div>
+</section>
+
+<main>
+  <div class="wrap grid">
+    <div>
+      <div class="sec">
+        <span class="lbl" data-en="Overview" data-ko="개요">Overview</span>
+        <p id="p-overview">—</p>
+        <p class="ph-note" data-en="[ Add a fuller description, use cases and positioning for this category here. ]" data-ko="[ 이 품목에 대한 상세 설명·활용 사례·포지셔닝을 여기에 추가하세요. ]">[ Add a fuller description here. ]</p>
+      </div>
+
+      <div class="sec">
+        <span class="lbl" data-en="Typical items" data-ko="대표 품목">Typical items</span>
+        <ul class="items" id="p-items">
+          <li data-en="Item one — to be filled" data-ko="품목 1 — 작성 예정">Item one — to be filled</li>
+          <li data-en="Item two — to be filled" data-ko="품목 2 — 작성 예정">Item two — to be filled</li>
+          <li data-en="Item three — to be filled" data-ko="품목 3 — 작성 예정">Item three — to be filled</li>
+          <li data-en="Item four — to be filled" data-ko="품목 4 — 작성 예정">Item four — to be filled</li>
+        </ul>
+      </div>
+
+      <div class="sec" id="brands-sec">
+        <span class="lbl" data-en="Brands &amp; suppliers" data-ko="브랜드 · 공급처">Brands &amp; suppliers</span>
+        <div class="chips" id="p-brands"></div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card">
+        <span class="lbl" data-en="At a glance" data-ko="요약">At a glance</span>
+        <div class="spec"><span data-en="Category" data-ko="분류">Category</span><b id="p-cat2">—</b></div>
+        <div class="spec"><span data-en="Sourcing" data-ko="소싱">Sourcing</span><b data-en="Local &amp; import" data-ko="국내·수입">Local &amp; import</b></div>
+        <div class="spec"><span data-en="Lead time" data-ko="리드타임">Lead time</span><b data-en="On request" data-ko="문의">On request</b></div>
+        <div class="spec"><span data-en="Min. order" data-ko="최소 주문">Min. order</span><b data-en="On request" data-ko="문의">On request</b></div>
+        <a class="cta" href="index.html#contact" data-en="Request a quote" data-ko="견적 문의">Request a quote</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="wrap more">
+    <span class="lbl" data-en="Other categories" data-ko="다른 품목">Other categories</span>
+    <div class="more-grid" id="more-grid"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> PT. Seo Heung Indoraya — SHC Indonesia</span>
+    <a href="index.html" style="color:var(--violet);font-weight:600;text-decoration:none" data-en="Back to home" data-ko="홈으로">Back to home</a>
+  </div>
+</footer>
+
+<script>
+var PRODUCTS = {
+  "our-brand-products":{color:"#574E9E",cat:{en:"In-house Brand",ko:"자사 브랜드"},name:{en:"Our Brand Products",ko:"자사 브랜드 제품"},desc:{en:"In-house lines developed for items customers reorder every month.",ko:"매월 재주문되는 품목을 위해 개발한 자체 브랜드 라인."},brands:[]},
+  "shoe-material":{color:"#6A61B4",cat:{en:"Footwear",ko:"신발"},name:{en:"Shoe Material",ko:"신발 자재"},desc:{en:"Components and materials for footwear production lines.",ko:"신발 생산 라인을 위한 부자재 및 원자재."},brands:[]},
+  "industrial-consumable":{color:"#332F63",cat:{en:"Consumables",ko:"소모품"},name:{en:"Industrial Consumable",ko:"산업용 소모품"},desc:{en:"Abrasives, adhesives, lubricants and the daily supplies a line runs through.",ko:"연마재, 접착제, 윤활유 등 라인에서 매일 소모되는 자재."},brands:[]},
+  "industrial-spare-parts":{color:"#7A72CC",cat:{en:"Spare Parts",ko:"부품"},name:{en:"Industrial Spare Parts",ko:"산업용 부품"},desc:{en:"Bearings, belts, motors and replacement parts held to original specification.",ko:"베어링, 벨트, 모터 등 원 사양에 맞춘 교체 부품."},brands:[]},
+  "safety-equipment":{color:"#3FC0D4",cat:{en:"Safety",ko:"안전"},name:{en:"Safety Equipment",ko:"안전 장비"},desc:{en:"Personal protective equipment and site safety gear, including 3M.",ko:"3M을 포함한 개인 보호구 및 현장 안전 장비."},brands:["3M"]},
+  "office-supplies":{color:"#4A4290",cat:{en:"Office",ko:"사무"},name:{en:"Office Supplies",ko:"사무용품"},desc:{en:"Stationery and office consumables from Joyko and other suppliers.",ko:"Joyko 등 문구 및 사무용 소모품."},brands:["Joyko"]},
+  "construction-material":{color:"#5B67B8",cat:{en:"Construction",ko:"건설"},name:{en:"Construction Material",ko:"건축 자재"},desc:{en:"Steel, concrete and finishing material — Krakatau Steel, Wika Beton and more.",ko:"Krakatau Steel, Wika Beton 등 철강·콘크리트·마감 자재."},brands:["Krakatau Steel","Wika Beton"]},
+  "machinery":{color:"#3E8FA8",cat:{en:"Machinery",ko:"기계"},name:{en:"Machinery",ko:"기계 설비"},desc:{en:"Production machinery supplied with installation and after-sales support.",ko:"설치와 사후 지원이 함께 제공되는 생산 기계."},brands:[]}
+};
+var ORDER = ["our-brand-products","shoe-material","industrial-consumable","industrial-spare-parts","safety-equipment","office-supplies","construction-material","machinery"];
+
+function qs(k){var m=new RegExp("[?&]"+k+"=([^&]+)").exec(location.search);return m?decodeURIComponent(m[1]):"";}
+var slug = qs("item"); if(!PRODUCTS[slug]) slug="our-brand-products";
+var P = PRODUCTS[slug];
+var lang = "en";
+
+function apply(){
+  document.documentElement.setAttribute("data-lang",lang);
+  document.documentElement.setAttribute("lang",lang);
+  // static bilingual elements
+  var els=document.querySelectorAll("[data-en]");
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute("data-"+lang);if(v!=null)els[i].textContent=v;}
+  // product fields
+  document.getElementById("p-name").textContent=P.name[lang];
+  document.getElementById("crumb-name").textContent=P.name[lang];
+  document.getElementById("p-desc").textContent=P.desc[lang];
+  document.getElementById("p-overview").textContent=P.desc[lang];
+  document.getElementById("p-cat").textContent=P.cat[lang];
+  document.getElementById("p-cat2").textContent=P.cat[lang];
+  document.title=P.name[lang]+" — PT. Seo Heung Indoraya";
+  // brands
+  var bs=document.getElementById("p-brands");bs.innerHTML="";
+  if(P.brands.length){document.getElementById("brands-sec").style.display="";for(var j=0;j<P.brands.length;j++){var c=document.createElement("span");c.className="chip";c.textContent=P.brands[j];bs.appendChild(c);}}
+  else{document.getElementById("brands-sec").style.display="none";}
+  // other categories
+  var mg=document.getElementById("more-grid");mg.innerHTML="";
+  for(var k=0;k<ORDER.length;k++){var s=ORDER[k];var a=document.createElement("a");a.href="product.html?item="+s;a.textContent=PRODUCTS[s].name[lang];if(s===slug)a.setAttribute("aria-current","true");mg.appendChild(a);}
+  // buttons
+  document.getElementById("btn-en").setAttribute("aria-pressed",lang==="en");
+  document.getElementById("btn-ko").setAttribute("aria-pressed",lang==="ko");
+}
+document.getElementById("phero").style.background="linear-gradient(135deg,"+P.color+" 0%,"+P.color+"e6 60%,var(--violet-deep) 130%)";
+document.getElementById("yr").textContent=(location.hash,"") || new Date().getFullYear();
+document.getElementById("btn-en").addEventListener("click",function(){lang="en";apply();});
+document.getElementById("btn-ko").addEventListener("click",function(){lang="ko";apply();});
+apply();
+</script>
+</body>
+</html>
