@@ -780,52 +780,31 @@ footer{background:var(--violet-deep);color:var(--white);padding:clamp(22px,2.6vw
   html{scroll-behavior:auto}
 }
 
-/* ============ TIMELINE: FOTO KANAN + EVENT/HISTORY ============ */
-.tl{grid-template-columns:auto minmax(0,1fr) auto;align-items:center;row-gap:10px}
-.tl-head{grid-column:1;grid-row:1}
+/* ============ TIMELINE: CENTERED ODOMETER (no image) ============ */
+.tl{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  max-width:620px;margin:0 auto;row-gap:clamp(12px,1.7vw,20px);
+}
+.tl-head{order:1;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.tl-year{font-size:clamp(3.4rem,7.5vw,5.4rem)}
 .tl-text{display:none}
-.tl-more{grid-column:2;grid-row:1;list-style:none;margin:0;padding:0}
-.tl-photo{grid-column:3;grid-row:1;justify-self:end}
-.tl-track{grid-column:1/-1;grid-row:2}
-
+.tl-more{
+  order:2;list-style:none;margin:0;padding:0;
+  display:flex;flex-direction:column;align-items:center;gap:6px;min-height:3em;
+}
 .tl-more li{
-  display:flex;gap:10px;align-items:baseline;
-  padding:6px 0;
-  font-size:.9rem;line-height:1.55;color:var(--muted);
+  display:block;padding:0;
+  font-size:clamp(.92rem,1.15vw,1.02rem);line-height:1.5;color:var(--muted);max-width:36em;
 }
 .tl-more li[hidden]{display:none}
-.tl-more li::before{
-  content:"";flex:none;width:6px;height:6px;
-  margin-top:.5em;border-radius:50%;background:var(--violet);
-}
+.tl-more li::before{display:none}
 .tl-more li>em{font-style:normal}
-
-.tl-photo{
-  position:relative;margin:0;overflow:hidden;
-  width:clamp(190px,20vw,248px);aspect-ratio:22/10;
-  border-radius:10px;background:var(--paper);
-  border:1px solid var(--line);box-shadow:0 6px 16px rgba(27,27,42,.10);
-}
-.tl-photo img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;opacity:0;transition:opacity .45s ease;
-}
-.tl-photo img.on{opacity:1}
-.tl-photo.empty{display:none}          /* tahun tanpa foto: kosong, bukan kotak blank */
-@media(prefers-reduced-motion:reduce){.tl-photo img{transition:none}}
-
-@media(max-width:900px){
-  .tl{grid-template-columns:auto minmax(0,1fr)}
-  .tl-photo{grid-column:1/-1;grid-row:2;justify-self:stretch;width:100%}
-  .tl-track{grid-row:3}
-}
+.tl-photo{display:none}
+.tl-track{order:3;display:flex;gap:5px;width:100%;max-width:420px;margin:6px auto 0;}
+#track .sec-head{text-align:center;margin-left:auto;margin-right:auto}
 @media(max-width:640px){
-  .tl{grid-template-columns:1fr;row-gap:8px}
-  .tl-head{grid-row:1}
-  .tl-more{grid-column:1;grid-row:2}
-  .tl-photo{grid-row:3}
-  .tl-track{grid-row:4}
-  .tl-more li{font-size:.82rem}
+  .tl-year{font-size:clamp(2.8rem,13vw,4rem)}
+  .tl-more li{font-size:.9rem}
 }
 
 /* ============ GROWTH CHART ============ */
@@ -1031,9 +1010,6 @@ footer{background:var(--violet-deep);color:var(--white);padding:clamp(22px,2.6vw
         <span data-y="2022" data-en="Nike Factory Material Coordination Project – Phase Three||Obtained Licenses for Storage, Machinery, and Repair" data-ko="Nike 공장 자재 조달 프로젝트 – 3단계||보관·기계·수리 면허 취득">Nike Factory Material Coordination Project – Phase Three</span>
         <span data-y="2024" data-en="Supply Raw Materials for Shoe Factory||Started Material Sourcing for MEC (Nike Factory)||Expanded Supply of Chemical &amp; Foam Raw Materials" data-ko="신발 공장용 원자재 공급||MEC(Nike 공장) 소싱 시작||화학·폼 원자재 공급 확대">Supply Raw Materials for Shoe Factory</span>
         <span data-y="2025" data-en="Bonded Distribution Center Opened||All Chemical Business Diversification" data-ko="보세물류센터 개소||전 화학 사업 다각화">Bonded Distribution Center Opened</span>
-        <span data-y="2026" data-next="1" data-en="Reviewing expansion into new business areas." data-ko="신규사업 확장 검토">Reviewing expansion into new business areas.</span>
-        <span data-y="2027" data-next="1" data-en="New manufacturing ventures; tooling, logistics and e-commerce." data-ko="신규 제조 사업 진출 및 툴링·물류·이커머스 솔루션을 선보입니다.">New manufacturing ventures; tooling, logistics and e-commerce.</span>
-        <span data-y="2030" data-next="1" data-en="Semi-finished shoe production and expanded B2B/B2C e-commerce." data-ko="반제품 신발 생산과 B2B/B2C 이커머스를 확대합니다.">Semi-finished shoe production and expanded B2B/B2C e-commerce.</span>
       </div>
       <div class="tl-head">
         <div class="tl-year" role="img" aria-label="Milestone year">
@@ -1057,9 +1033,6 @@ footer{background:var(--violet-deep);color:var(--white);padding:clamp(22px,2.6vw
         <button type="button" class="tl-dot" data-i="6" aria-label="2022"></button>
         <button type="button" class="tl-dot" data-i="7" aria-label="2024"></button>
         <button type="button" class="tl-dot" data-i="8" aria-label="2025"></button>
-        <button type="button" class="tl-dot" data-i="9" aria-label="2026"></button>
-        <button type="button" class="tl-dot" data-i="10" aria-label="2027"></button>
-        <button type="button" class="tl-dot" data-i="11" aria-label="2030"></button>
       </div>
     </div>
   </div>
