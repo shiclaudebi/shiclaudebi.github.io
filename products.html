@@ -103,7 +103,7 @@ header.solid{
   backdrop-filter:saturate(180%) blur(14px);
   box-shadow:0 1px 0 var(--line);
 }
-.bar{max-width:var(--max);margin:0 auto;height:72px;display:flex;align-items:center;gap:20px}
+.bar{max-width:var(--max);margin:0 auto;height:108px;display:flex;align-items:center;gap:24px}
 .brand{display:flex;align-items:center;gap:14px;margin-right:auto;min-width:0}
 .logo{
   display:block;height:38px;width:77px;flex:none;
@@ -112,21 +112,21 @@ header.solid{
   transition:filter .35s ease;
 }
 header.solid .logo{filter:none}
-.brand-div{width:1px;height:26px;flex:none;background:rgba(255,255,255,.32);transition:background .35s ease}
+.brand-div{width:1px;height:44px;flex:none;background:rgba(255,255,255,.32);transition:background .35s ease}
 header.solid .brand-div{background:var(--line)}
 .brand-name{
-  font-size:.8rem;font-weight:800;letter-spacing:.02em;line-height:1.2;
+  font-size:1.18rem;font-weight:800;letter-spacing:.02em;line-height:1.2;
   color:var(--white);white-space:nowrap;transition:color .35s ease;
 }
 header.solid .brand-name{color:var(--ink)}
 @media(max-width:600px){
   .brand-div,.brand-name{display:none}
-  .logo{height:34px;width:69px}
+  .logo{height:60px;width:121px}
 }
 
 nav ul{display:flex;gap:clamp(14px,1.9vw,28px);list-style:none;align-items:center}
 nav a{
-  font-size:.83rem;font-weight:600;letter-spacing:.01em;color:rgba(255,255,255,.86);
+  font-size:1.12rem;font-weight:600;letter-spacing:.01em;color:rgba(255,255,255,.86);
   padding:6px 0;position:relative;transition:color .2s;white-space:nowrap;
 }
 header.solid nav a{color:var(--muted)}
@@ -159,7 +159,7 @@ header.solid .burger span{background:var(--ink)}
   .burger{display:block;order:3}
   .lang{order:2}
   nav{
-    position:fixed;inset:72px 0 auto 0;background:var(--white);
+    position:fixed;inset:108px 0 auto 0;background:var(--white);
     border-bottom:1px solid var(--line);
     max-height:0;overflow:hidden;transition:max-height .38s ease;
   }
@@ -892,7 +892,7 @@ footer{scroll-snap-align:end}
 /* nav dropdown */
 #nav a[aria-current="page"]{font-weight:800}
 header.solid #nav a[aria-current="page"]{color:var(--violet)}
-#nav>ul>li{position:relative;display:flex;align-items:center;height:72px}
+#nav>ul>li{position:relative;display:flex;align-items:center;height:108px}
 #nav .sub{list-style:none;margin:0;padding:8px;position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:200px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(27,27,42,.16);display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:130}
 #nav>ul>li:hover>.sub,#nav>ul>li:focus-within>.sub{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(4px)}
 #nav .sub li{position:static;height:auto}
@@ -912,6 +912,17 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
   .section{min-height:0;display:block}
 }
 </style>
+<style>
+.to-top{position:fixed;right:22px;bottom:22px;z-index:150;width:48px;height:48px;border-radius:50%;border:0;background:var(--violet);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(51,47,99,.35);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s ease,transform .3s ease,background .2s ease}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--violet-deep);transform:translateY(-2px)}
+.to-top svg{width:20px;height:20px}
+@media(max-width:600px){.to-top{right:16px;bottom:16px;width:44px;height:44px}}
+</style>
+
+
+
+
 </head>
 <body>
 <header id="hdr">
@@ -927,7 +938,9 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
           <a href="index.html" data-en="Home" data-ko="홈">Home</a>
           <ul class="sub">
             <li><a href="index.html#top" data-en="Overview" data-ko="개요">Overview</a></li>
-            <li><a href="index.html#pdplb" data-en="PDPLB — Bonded Logistics" data-ko="보세물류센터">PDPLB — Bonded Logistics</a></li>
+            <li><a href="index.html#network" data-en="Global Network" data-ko="글로벌 네트워크">Global Network</a></li>
+            <li><a href="index.html#news" data-en="News" data-ko="뉴스">News</a></li>
+            <li><a href="index.html#clients" data-en="Clients" data-ko="고객사">Clients</a></li>
           </ul>
         </li>
         <li>
@@ -937,6 +950,7 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
             <li><a href="introduction.html#solutions" data-en="Solutions" data-ko="사업영역">Solutions</a></li>
             <li><a href="introduction.html#model" data-en="Procurement Model" data-ko="조달 모델">Procurement Model</a></li>
             <li><a href="introduction.html#track" data-en="History" data-ko="연혁">History</a></li>
+            <li><a href="introduction.html#pdplb" data-en="PDPLB — Bonded Logistics" data-ko="보세물류센터">PDPLB — Bonded Logistics</a></li>
           </ul>
         </li>
         <li>
@@ -950,7 +964,6 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
         <li>
           <a href="contact.html" data-en="Contact" data-ko="문의">Contact</a>
           <ul class="sub">
-            <li><a href="contact.html#clients" data-en="Clients" data-ko="고객사">Clients</a></li>
             <li><a href="contact.html#contact" data-en="Location" data-ko="오시는 길">Location</a></li>
             <li><a href="contact.html#career" data-en="Career" data-ko="채용">Career</a></li>
           </ul>
@@ -1383,6 +1396,13 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
     secs.forEach(function(sc){ io.observe(sc); });
   }
 })();
+</script>
+<button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+<script>
+(function(){var t=document.getElementById('toTop');if(!t)return;
+function s(){t.classList.toggle('show',(window.scrollY||document.documentElement.scrollTop)>window.innerHeight*0.6);}
+window.addEventListener('scroll',s,{passive:true});
+t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});s();})();
 </script>
 </body>
 </html>
