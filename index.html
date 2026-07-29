@@ -893,12 +893,12 @@ footer{scroll-snap-align:end}
 #nav a[aria-current="page"]{font-weight:800}
 header.solid #nav a[aria-current="page"]{color:var(--violet)}
 #nav>ul>li{position:relative;display:flex;align-items:center;height:108px}
-#nav .sub{list-style:none;margin:0;padding:8px;position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:200px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(27,27,42,.16);display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:130}
+#nav .sub{list-style:none;margin:0;padding:14px 12px 12px;position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:238px;background:linear-gradient(165deg,#2c2656 0%,#1b1736 100%);border:1px solid rgba(255,255,255,.10);border-radius:16px;box-shadow:0 26px 60px -14px rgba(8,6,26,.62),0 2px 10px rgba(8,6,26,.4);display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:130}#nav .sub::before{content:"";position:absolute;top:0;left:16px;right:16px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--teal),var(--lime))}#nav .sub::after{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#2c2656;border-left:1px solid rgba(255,255,255,.10);border-top:1px solid rgba(255,255,255,.10);border-radius:3px 0 0 0}
 #nav>ul>li:hover>.sub,#nav>ul>li:focus-within>.sub{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(4px)}
 #nav .sub li{position:static;height:auto}
-#nav .sub a{display:block;white-space:nowrap;padding:9px 14px;border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink)!important}
+#nav .sub a{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:10px 14px;border-radius:10px;font-size:.88rem;font-weight:500;letter-spacing:.01em;color:rgba(255,255,255,.82)!important;position:relative;transition:background .2s ease,color .2s ease}#nav .sub a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);opacity:.3;flex:none;transition:opacity .2s ease,transform .2s ease,box-shadow .2s ease}
 #nav .sub a::after{display:none}
-#nav .sub a:hover{background:var(--paper);color:var(--violet)!important}
+#nav .sub a:hover{background:rgba(255,255,255,.09);color:#fff!important}#nav .sub a:hover::before{opacity:1;transform:scale(1.15);box-shadow:0 0 8px var(--teal)}
 .page-hero{position:relative;display:flex;align-items:center;padding:118px var(--pad-x) 56px;color:#fff;overflow:hidden;
   background:radial-gradient(90% 120% at 88% 8%,rgba(63,192,212,.28) 0%,transparent 56%),radial-gradient(120% 100% at 0% 100%,#4A4290 0%,transparent 60%),linear-gradient(152deg,var(--violet-deep) 0%,var(--violet) 58%,#6259B0 100%);}
 .page-hero .wrap{position:relative;z-index:2;width:100%}
@@ -1076,6 +1076,16 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
 #news .sec-head .h2{color:#F2F0FF!important}
 #news .news-bridge a{color:#c6bcff!important}
 </style>
+
+<style>
+#nav>ul>li>a{cursor:default}
+#nav .sub{align-items:stretch}
+#nav .sub li{width:100%}
+#nav .sub a{justify-content:flex-start}
+#nav>ul>li>a:hover{color:var(--teal)}
+header.solid #nav>ul>li>a{cursor:default}
+@media(max-width:960px){#nav .sub::before,#nav .sub::after,#nav .sub a::before{display:none}#nav>ul>li>a{cursor:default}}
+</style>
 </head>
 <body>
 <header id="hdr">
@@ -1088,7 +1098,7 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
     <nav id="nav">
       <ul>
         <li>
-          <a href="index.html" aria-current="page" data-en="Home" data-ko="홈">Home</a>
+          <a role="button" tabindex="0" aria-current="page" data-en="Home" data-ko="홈">Home</a>
           <ul class="sub">
             <li><a href="index.html#top" data-en="Overview" data-ko="개요">Overview</a></li>
             <li><a href="index.html#network" data-en="Global Network" data-ko="글로벌 네트워크">Global Network</a></li>
@@ -1097,7 +1107,7 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
           </ul>
         </li>
         <li>
-          <a href="introduction.html" data-en="Introduction" data-ko="회사소개">Introduction</a>
+          <a role="button" tabindex="0" data-en="Introduction" data-ko="회사소개">Introduction</a>
           <ul class="sub">
             <li><a href="introduction.html#about" data-en="About SHI" data-ko="회사 소개">About SHI</a></li>
             <li><a href="introduction.html#solutions" data-en="Solutions" data-ko="사업영역">Solutions</a></li>
@@ -1107,7 +1117,7 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
           </ul>
         </li>
         <li>
-          <a href="products.html" data-en="Products" data-ko="제품">Products</a>
+          <a role="button" tabindex="0" data-en="Products" data-ko="제품">Products</a>
           <ul class="sub">
             <li><a href="products.html" data-en="All Products" data-ko="전체 제품">All Products</a></li>
             <li><a href="products.html#machinery" data-en="Machinery" data-ko="기계 설비">Machinery</a></li>
@@ -1115,8 +1125,9 @@ header.solid #nav a[aria-current="page"]{color:var(--violet)}
           </ul>
         </li>
         <li>
-          <a href="contact.html" data-en="Contact" data-ko="문의">Contact</a>
+          <a role="button" tabindex="0" data-en="Contact" data-ko="문의">Contact</a>
           <ul class="sub">
+            <li><a href="contact.html#contact" data-en="Contact us" data-ko="문의하기">Contact us</a></li>
             <li><a href="contact.html#location" data-en="Location" data-ko="오시는 길">Location</a></li>
           </ul>
         </li>
