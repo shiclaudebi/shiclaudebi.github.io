@@ -335,49 +335,46 @@ header.solid .burger span{background:var(--ink)}
 .flow-fig{position:relative}
 .flow-svg{display:block;width:100%;height:auto}
 .flow-logo{
-  position:absolute;left:50%;top:-2px;transform:translate(-50%,-50%);
-  width:88px;aspect-ratio:1000/493;pointer-events:none;z-index:3;
+  position:absolute;left:45.5%;top:53.1%;transform:translate(-50%,-50%);
+  width:15%;aspect-ratio:1000/493;pointer-events:none;
   background:var(--logo) center/contain no-repeat;
 }
-/* ---- new framework: horizontal process pipeline ---- */
-.pipeline{position:relative;padding:34px clamp(6px,1vw,14px) 6px}
-.pl-track{
-  position:absolute;left:calc(12.5% );right:12.5%;top:calc(34px + 34px);height:3px;z-index:0;
-  background:linear-gradient(90deg,var(--violet-light),var(--violet),var(--teal));
-  border-radius:3px;
+.flow-svg .cap{font-size:9.5px;font-weight:800;letter-spacing:.16em;fill:rgba(27,27,42,.38)}
+.flow-svg .cap.mid{fill:var(--violet);text-anchor:middle}
+.flow-svg .vd{fill:var(--paper);stroke:var(--line)}
+.flow-svg .vdt{font-size:10.5px;font-weight:600;fill:var(--violet-deep)}
+.flow-svg .ic{fill:none;stroke:var(--violet);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.flow-svg .fan{
+  stroke:rgba(87,78,158,.42);stroke-width:1.1;fill:none;
+  stroke-dasharray:5 7;animation:flow 1.4s linear infinite;
 }
-.pl-track::after{
-  content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);
-  width:10px;height:10px;border-radius:50%;background:var(--teal);
-  box-shadow:0 0 0 4px rgba(63,192,212,.22);
+@keyframes flow{to{stroke-dashoffset:-12}}
+.flow-svg .pic{fill:none;stroke:var(--violet);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.flow-svg .arw{stroke:var(--violet);stroke-width:3;fill:none;stroke-linecap:round}
+.flow-svg .head{fill:var(--violet)}
+.flow-svg .custt{font-size:12px;font-weight:800;fill:var(--violet-deep);text-anchor:middle}
+.flow-svg .custs{font-size:10.5px;font-weight:600;fill:var(--muted);text-anchor:middle}
+.flow-notes{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:clamp(10px,1.2vw,16px)}
+.flow-note{
+  font-size:.74rem;font-weight:700;letter-spacing:-.01em;color:#20240A;
+  background:var(--lime);border:1px solid rgba(0,0,0,.05);
+  padding:6px 14px;border-radius:999px;
+  transition:transform .16s ease,box-shadow .16s ease;
 }
-.pl-steps{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,20px)}
-.pl-step{
-  position:relative;text-align:center;padding:0 clamp(4px,.6vw,10px);
-  display:flex;flex-direction:column;align-items:center;
-}
-.pl-ic{
-  width:68px;height:68px;border-radius:50%;background:var(--white);
-  border:1px solid var(--line);box-shadow:0 10px 26px -14px rgba(43,40,86,.45);
-  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
-  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
-}
-.pl-ic svg{width:30px;height:30px;fill:none;stroke:var(--violet);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .28s ease}
-.pl-step:hover .pl-ic{transform:translateY(-5px);border-color:var(--violet);box-shadow:0 16px 34px -14px rgba(87,78,158,.55)}
-.pl-step:hover .pl-ic svg{stroke:var(--teal)}
-.pl-n{font-size:.7rem;font-weight:800;letter-spacing:.14em;color:var(--violet);font-variant-numeric:tabular-nums;margin-bottom:6px}
-.pl-step b{display:block;font-size:clamp(1.02rem,1.3vw,1.28rem);font-weight:800;letter-spacing:-.02em;color:var(--violet-deep);margin-bottom:8px}
-.pl-d{display:block;font-size:.84rem;line-height:1.55;color:var(--muted);max-width:24ch;margin:0 auto}
-@media(max-width:820px){
-  .pl-steps{grid-template-columns:1fr 1fr;gap:26px 14px}
-  .pl-track{display:none}
-  .flow-logo{position:static;transform:none;margin:0 auto 20px}
-  .pipeline{padding-top:6px}
-}
-@media(max-width:460px){
-  .pl-steps{grid-template-columns:1fr}
-  .pl-d{max-width:34ch}
-}
+.flow-note:hover{transform:translateY(-2px);box-shadow:0 6px 15px rgba(150,210,50,.4)}
+/* interactive vendor rows */
+.flow-svg .vgrp .vd{transition:fill .18s ease,stroke .18s ease}
+.flow-svg .vgrp:hover .vd{fill:#EDF2DE;stroke:var(--violet)}
+/* customer outcome card */
+.flow-svg .out-card{fill:var(--paper);stroke:var(--line)}
+.flow-svg .out-pic{fill:none;stroke:var(--violet);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.flow-svg .out-div{stroke:var(--line);stroke-width:1}
+.flow-svg .out-chk{fill:var(--violet);transition:fill .18s ease}
+.flow-svg .out-tick{fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.flow-svg .outt{font-size:12.5px;font-weight:600;fill:var(--violet-deep)}
+.flow-svg .out-row{transition:transform .18s ease}
+.flow-svg .out-row:hover{transform:translateX(3px)}
+.flow-svg .out-row:hover .out-chk{fill:var(--teal)}
 #model .lead{font-size:.8rem;line-height:1.62;max-width:600px}
 @media(prefers-reduced-motion:reduce){.flow-svg .fan{animation:none;stroke-dasharray:none}}
 .mdl-gain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(12px,1.4vw,18px);background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,2vw,26px)}
@@ -1128,6 +1125,49 @@ header.solid #nav>ul>li>a[href]{cursor:pointer}
 #pdplb.section{justify-content:flex-start;padding-top:clamp(118px,13vh,140px);padding-bottom:clamp(40px,5vh,72px);padding-left:clamp(20px,2.4vw,40px);padding-right:clamp(20px,2.4vw,40px)}
 </style>
 <style>#pdplb .pdplb-top{gap:clamp(30px,4vw,70px)}#pdplb .pdplb-top{grid-template-columns:minmax(0,1fr) clamp(380px,38%,520px)}#pdplb .fac-grid{gap:clamp(12px,1.3vw,18px)}</style>
+
+
+<style>
+/* nav submenu — translucent glass, thin gradient, tight spacing, no bullets */
+#nav .sub{background:linear-gradient(160deg,rgba(255,255,255,.5) 0%,rgba(206,209,236,.34) 100%)!important;-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25);border:1px solid rgba(255,255,255,.45)!important;border-radius:12px!important;min-width:0!important;width:max-content!important;max-width:min(92vw,420px)!important;box-shadow:0 18px 42px -16px rgba(20,18,50,.26)!important;padding:4px!important;left:50%!important;right:auto!important;gap:0!important}
+#nav .sub::before{display:none!important}
+#nav .sub::after{display:none!important}
+#nav .sub li{margin:0!important}
+#nav .sub a{color:#2a2a3a!important;font-weight:600!important;border-bottom:0!important;gap:0!important;padding:6px 14px!important;border-radius:8px!important}
+#nav .sub a::before{display:none!important}
+#nav .sub a:hover{background:rgba(255,255,255,.55)!important;color:#111!important}
+</style>
+
+<style>
+/* larger, properly-proportioned brand logo */
+.logo{height:68px!important;width:138px!important}
+.brand{gap:16px!important}
+.brand-div{height:48px!important}
+.brand-name{font-size:1.18rem!important}
+@media(max-width:600px){.logo{height:56px!important;width:113px!important}.brand{gap:12px!important}}
+</style>
+<style>
+/* professional footer — compact & tighter */
+footer{background:linear-gradient(180deg,#332F63 0%,#25224a 100%)!important;color:#fff;padding:clamp(28px,3vw,42px) var(--pad-x) 15px!important}
+footer .wrap{max-width:940px!important;margin:0 auto}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:clamp(16px,2vw,38px);padding-bottom:clamp(15px,1.7vw,22px);border-bottom:1px solid rgba(255,255,255,.14)}
+.f-logo{display:block;width:84px;height:40px;background:var(--logo) center/contain no-repeat;filter:brightness(0) invert(1);margin-bottom:9px}
+.f-name{font-weight:800;font-size:.9rem;margin:0 0 6px}
+.f-desc{color:rgba(255,255,255,.65);line-height:1.5;font-size:.78rem;max-width:36ch;margin:0 0 8px}
+.f-addr{color:rgba(255,255,255,.5);font-size:.76rem;margin:0}
+.f-col h4{font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin:0 0 10px;font-weight:800}
+.f-col>a{display:block;color:rgba(255,255,255,.78);text-decoration:none;font-size:.82rem;margin-bottom:7px;transition:color .2s ease,padding-left .2s ease;word-break:break-word}
+.f-col>a:hover{color:#fff;padding-left:3px}
+.f-hours{color:rgba(255,255,255,.5);font-size:.76rem;margin:3px 0 10px}
+.f-social{display:flex;gap:9px}
+.f-social a{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);margin:0;transition:background .25s ease,transform .25s ease}
+.f-social a:hover{background:var(--teal);transform:translateY(-2px)}
+.f-social svg{width:15px;height:15px;fill:#fff}
+.f-bot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:12px;color:rgba(255,255,255,.48);font-size:.74rem}
+.f-bot p{margin:0}
+@media(max-width:820px){.f-grid{grid-template-columns:1fr 1fr}.f-brand{grid-column:1/-1}}
+@media(max-width:560px){.f-grid{grid-template-columns:1fr}.f-bot{flex-direction:column;align-items:flex-start;gap:5px}}
+</style>
 </head>
 <body>
 <header id="hdr">
@@ -1269,44 +1309,53 @@ header.solid #nav>ul>li>a[href]{cursor:pointer}
 
     <div class="flow rv">
       <div class="flow-fig">
-        <div class="pipeline" role="img" aria-label="SHI procurement process: Source, Consolidate, Bonded Stock, Deliver">
-          <span class="flow-logo" aria-hidden="true"></span>
-          <div class="pl-track" aria-hidden="true"></div>
-          <div class="pl-steps">
-            <div class="pl-step">
-              <span class="pl-ic">
-                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20.4 20.4"/><path d="M11 8v6M8 11h6"/></svg>
-              </span>
-              <span class="pl-n">01</span>
-              <b data-en="Source" data-ko="소싱">Source</b>
-              <span class="pl-d" data-en="One request, sourced across 4 countries and 10,000+ MRO items." data-ko="하나의 요청을 4개국·1만 종 이상의 MRO 품목에서 소싱합니다.">One request, sourced across 4 countries and 10,000+ MRO items.</span>
-            </div>
-            <div class="pl-step">
-              <span class="pl-ic">
-                <svg viewBox="0 0 24 24"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/></svg>
-              </span>
-              <span class="pl-n">02</span>
-              <b data-en="Consolidate" data-ko="통합">Consolidate</b>
-              <span class="pl-d" data-en="Dozens of vendors merged into one order, one invoice, one contact." data-ko="수십 개 업체를 하나의 발주·청구서·창구로 통합합니다.">Dozens of vendors merged into one order, one invoice, one contact.</span>
-            </div>
-            <div class="pl-step">
-              <span class="pl-ic">
-                <svg viewBox="0 0 24 24"><path d="M3.5 9 12 4l8.5 5v9.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5z"/><path d="M8.5 20v-6h7v6"/><path d="M9 9.6l3-1.6 3 1.6"/></svg>
-              </span>
-              <span class="pl-n">03</span>
-              <b data-en="Bonded Stock" data-ko="보세 재고">Bonded Stock</b>
-              <span class="pl-d" data-en="Held duty-deferred in our Cikarang bonded warehouse, ready near the line." data-ko="찌까랑 보세창고에 관세 유예 상태로 보관해 생산 현장 가까이 대기합니다.">Held duty-deferred in our Cikarang bonded warehouse, ready near the line.</span>
-            </div>
-            <div class="pl-step">
-              <span class="pl-ic">
-                <svg viewBox="0 0 24 24"><path d="M2.5 6.5h10v8h-10z"/><path d="M12.5 9h4l3 3v2.5h-7z"/><circle cx="7" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/></svg>
-              </span>
-              <span class="pl-n">04</span>
-              <b data-en="Deliver" data-ko="납품">Deliver</b>
-              <span class="pl-d" data-en="Just-in-time delivery with sourcing, logistics and after-sales in one team." data-ko="소싱·물류·사후 서비스를 한 팀이 맡아 적시에 납품합니다.">Just-in-time delivery with sourcing, logistics and after-sales in one team.</span>
-            </div>
-          </div>
-        </div>
+<svg class="flow-svg" viewBox="0 0 1000 258" role="img" aria-label="Many vendors reach the customer through a single point, SHI">
+          <text class="cap" x="40" y="16" data-en="VENDOR" data-ko="공급업체">VENDOR</text>
+          <text class="cap mid" x="455" y="16">SHI</text>
+          <text class="cap" x="710" y="16" data-en="CUSTOMER" data-ko="고객사">CUSTOMER</text>
+          <path class="fan" d="M200 42.5 C258 42.5 300 137 368 137"/>
+          <path class="fan" d="M200 69.5 C258 69.5 300 137 368 137"/>
+          <path class="fan" d="M200 96.5 C258 96.5 300 137 368 137"/>
+          <path class="fan" d="M200 123.5 C258 123.5 300 137 368 137"/>
+          <path class="fan" d="M200 150.5 C258 150.5 300 137 368 137"/>
+          <path class="fan" d="M200 177.5 C258 177.5 300 137 368 137"/>
+          <path class="fan" d="M200 204.5 C258 204.5 300 137 368 137"/>
+          <path class="fan" d="M200 231.5 C258 231.5 300 137 368 137"/>
+          <g class="vgrp"><rect class="vd" x="40" y="32" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,36.5) scale(.75)"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.1"/></g>
+          <text class="vdt" x="82" y="46.1" data-en="Consumables" data-ko="소모품">Consumables</text></g>
+          <g class="vgrp"><rect class="vd" x="40" y="59" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,63.5) scale(.75)"><circle cx="8" cy="8" r="4.2"/><path d="M8 1.4v2.2M8 12.4v2.2M1.4 8h2.2M12.4 8h2.2"/></g>
+          <text class="vdt" x="82" y="73.1" data-en="Spare Parts" data-ko="부품">Spare Parts</text></g>
+          <g class="vgrp"><rect class="vd" x="40" y="86" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,90.5) scale(.75)"><path d="M1.8 12.4h12.4"/><path d="M3.4 12.4a4.6 4.6 0 0 1 9.2 0"/></g>
+          <text class="vdt" x="82" y="100.1" data-en="Safety Gear" data-ko="안전 장비">Safety Gear</text></g>
+          <g class="vgrp"><rect class="vd" x="40" y="113" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,117.5) scale(.75)"><path d="M6.4 2v4.2L3 13h10L9.6 6.2V2M5.4 2h5.2M5 10h6"/></g>
+          <text class="vdt" x="82" y="127.1" data-en="Chemicals" data-ko="화학 자재">Chemicals</text></g>
+          <g class="vgrp"><rect class="vd" x="40" y="140" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,144.5) scale(.75)"><path d="M3 13.2l1.1-3.2 7-7 2.1 2.1-7 7z"/><path d="M10.1 3l2.1 2.1"/></g>
+          <text class="vdt" x="82" y="154.1" data-en="Office" data-ko="사무용품">Office</text></g>
+          <g class="vgrp"><rect class="vd" x="40" y="167" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,171.5) scale(.75)"><path d="M2 4h12v8H2z"/><path d="M2 8h12M6.5 4v4M9.5 8v4"/></g>
+          <text class="vdt" x="82" y="181.1" data-en="Construction" data-ko="건축 자재">Construction</text></g>
+          <g class="vgrp"><rect class="vd" x="40" y="194" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,198.5) scale(.75)"><path d="M3 2.8h10v3H3z"/><path d="M5.4 5.8v4M10.6 5.8v4"/><path d="M3 9.8h10v3.4H3z"/></g>
+          <text class="vdt" x="82" y="208.1" data-en="Machinery" data-ko="기계 설비">Machinery</text></g>
+          <g class="vgrp"><rect class="vd" x="40" y="221" width="160" height="21" rx="10.5"/>
+          <g class="ic" transform="translate(53,225.5) scale(.75)"><path d="M3.6 3h8.8l1 10.2H2.6z"/><path d="M3.9 6.4h8.2"/></g>
+          <text class="vdt" x="82" y="235.1" data-en="Raw Material" data-ko="원자재">Raw Material</text></g>
+          <path class="arw" d="M544 129h164"/>
+          <path class="head" d="M727 129l-16-8.5v17z"/>
+          <!-- customer outcome card -->
+          <rect class="out-card" x="726" y="40" width="250" height="178" rx="16"/>
+          <g class="out-pic" transform="translate(832,50) scale(1.55)"><circle cx="12" cy="8.6" r="3.9"/><path d="M5.8 9.2V8.4a6.2 6.2 0 0 1 12.4 0v.8"/><rect x="4.2" y="8.8" width="3.2" height="4.6" rx="1.6"/><rect x="16.6" y="8.8" width="3.2" height="4.6" rx="1.6"/><path d="M18.2 13.4v.9a2.2 2.2 0 0 1-2.2 2.2h-1.7"/><path d="M4 21.6a8 8 0 0 1 16 0"/></g>
+          <line class="out-div" x1="752" y1="104" x2="950" y2="104"/>
+          <g class="out-row"><circle class="out-chk" cx="763" cy="127" r="7.4"/><path class="out-tick" d="M759.6 127l2.3 2.3 4.2-4.6"/><text class="outt" x="781" y="131" data-en="One purchase order" data-ko="하나의 발주">One purchase order</text></g>
+          <g class="out-row"><circle class="out-chk" cx="763" cy="156" r="7.4"/><path class="out-tick" d="M759.6 156l2.3 2.3 4.2-4.6"/><text class="outt" x="781" y="160" data-en="One invoice" data-ko="하나의 청구서">One invoice</text></g>
+          <g class="out-row"><circle class="out-chk" cx="763" cy="185" r="7.4"/><path class="out-tick" d="M759.6 185l2.3 2.3 4.2-4.6"/><text class="outt" x="781" y="189" data-en="One point of contact" data-ko="하나의 창구">One point of contact</text></g>
+        </svg>
+        <span class="flow-logo" aria-hidden="true"></span>
       </div>
       <div class="flow-notes">
         <span class="flow-note" data-en="39 trading licences" data-ko="39개 무역 라이선스">39 trading licences</span>
@@ -1485,9 +1534,33 @@ header.solid #nav>ul>li>a[href]{cursor:pointer}
 
 <footer>
   <div class="wrap">
+    <div class="f-grid">
+      <div class="f-col f-brand">
+        <span class="f-logo" role="img" aria-label="SHC Indonesia"></span>
+        <p class="f-name">PT. Seo Heung Indoraya</p>
+        <p class="f-desc" data-en="A total solution provider for global manufacturing — trading, procurement, bonded logistics and construction." data-ko="글로벌 제조를 위한 토탈 솔루션 프로바이더 — 무역·조달·보세물류·건설.">A total solution provider for global manufacturing — trading, procurement, bonded logistics and construction.</p>
+        <p class="f-addr" data-en="Karawang, West Java · Indonesia" data-ko="인도네시아 서부자바 까라왕">Karawang, West Java &middot; Indonesia</p>
+      </div>
+      <div class="f-col">
+        <h4 data-en="Explore" data-ko="바로가기">Explore</h4>
+        <a href="index.html" data-en="Home" data-ko="홈">Home</a>
+        <a href="introduction.html" data-en="Introduction" data-ko="회사소개">Introduction</a>
+        <a href="products.html" data-en="Products" data-ko="제품">Products</a>
+        <a href="contact.html" data-en="Contact" data-ko="문의">Contact</a>
+      </div>
+      <div class="f-col">
+        <h4 data-en="Get in touch" data-ko="연락처">Get in touch</h4>
+        <a href="mailto:SHI_LocalLeader@shcglobal.co.kr">SHI_LocalLeader@shcglobal.co.kr</a>
+        <p class="f-hours" data-en="Mon–Fri · 07:30–16:30 WIB" data-ko="월–금 · 07:30–16:30">Mon&ndash;Fri &middot; 07:30&ndash;16:30 WIB</p>
+        <div class="f-social">
+          <a href="https://instagram.com/ptseoheungindoraya" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1012 14.5 2.5 2.5 0 0012 9.5zM17.5 6a1 1 0 110 2 1 1 0 010-2z"/></svg></a>
+          <a href="https://linkedin.com/in/pt-seo-heung-indoraya-shi" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v6.31h-4v-5.6c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95v5.7H9v-12z"/></svg></a>
+        </div>
+      </div>
+    </div>
     <div class="f-bot">
-      <p>Copyright © 2026 PT. Seo Heung Indoraya. All rights reserved.</p>
-      <p>We Lead to Possibilities Beyond Connection</p>
+      <p data-en="Copyright © 2026 PT. Seo Heung Indoraya. All rights reserved." data-ko="Copyright © 2026 PT. Seo Heung Indoraya. All rights reserved.">Copyright &copy; 2026 PT. Seo Heung Indoraya. All rights reserved.</p>
+      <p data-en="We Lead to Possibilities Beyond Connection" data-ko="We Lead to Possibilities Beyond Connection">We Lead to Possibilities Beyond Connection</p>
     </div>
   </div>
 </footer>
@@ -1824,5 +1897,21 @@ function s(){t.classList.toggle('show',(window.scrollY||document.documentElement
 window.addEventListener('scroll',s,{passive:true});
 t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});s();})();
 </script>
+
+
+<style id="patch-subconsistent">
+/* Consistent dropdown: solid dark-violet glass on every page, independent of backdrop */
+#nav .sub{
+  background:linear-gradient(168deg,#332c64 0%,#211b40 100%)!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  box-shadow:0 24px 48px -16px rgba(6,4,22,.6),0 0 0 1px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.08)!important;
+  -webkit-backdrop-filter:blur(14px)!important;backdrop-filter:blur(14px)!important;
+  border-radius:13px!important;
+}
+#nav .sub a{color:rgba(255,255,255,.85)!important}
+#nav .sub a:hover{background:rgba(255,255,255,.12)!important;color:#ffffff!important}
+#nav .sub::after{background:#332c64!important;border-left-color:rgba(255,255,255,.14)!important;border-top-color:rgba(255,255,255,.14)!important}
+#nav .sub::before{background:linear-gradient(90deg,var(--teal),var(--lime))!important}
+</style>
 </body>
 </html>
