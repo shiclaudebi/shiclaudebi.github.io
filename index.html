@@ -1906,11 +1906,10 @@ footer .wrap{max-width:940px!important;margin:0 auto}
         <p class="f-addr" data-en="Karawang, West Java · Indonesia" data-ko="인도네시아 서부자바 까라왕">Karawang, West Java &middot; Indonesia</p>
       </div>
       <div class="f-col">
-        <h4 data-en="Explore" data-ko="바로가기">Explore</h4>
-        <a href="index.html" data-en="Home" data-ko="홈">Home</a>
-        <a href="introduction.html" data-en="Introduction" data-ko="회사소개">Introduction</a>
-        <a href="products.html" data-en="Products" data-ko="제품">Products</a>
-        <a href="contact.html" data-en="Contact" data-ko="문의">Contact</a>
+        <h4 data-en="Our Business" data-ko="사업 영역">Our Business</h4>
+        <a href="introduction.html#solutions" data-en="MRO Distribution" data-ko="MRO 유통">MRO Distribution</a>
+        <a href="introduction.html#solutions" data-en="Chemical Raw Materials" data-ko="화학 원자재 공급">Chemical Raw Materials</a>
+        <a href="introduction.html#solutions" data-en="Installation &amp; Maintenance" data-ko="설치 &amp; 유지보수">Installation &amp; Maintenance</a>
       </div>
       <div class="f-col">
         <h4 data-en="Get in touch" data-ko="연락처">Get in touch</h4>
@@ -2435,6 +2434,34 @@ footer .wrap{max-width:var(--max)!important;margin:0 auto!important}
 #prodgal .gc-back .gc-body{z-index:3}
 /* keep hover lift working on the anchor */
 #prodgal .gal-card.gal-flip:hover{transform:translateY(-8px)}
+</style>
+
+<style id="patch-footer4">
+/* Spread footer columns horizontally so it reads wider & lower */
+footer{padding-top:clamp(18px,2vw,26px)!important;padding-bottom:11px!important}
+footer .f-grid{grid-template-columns:1.9fr 1fr 1.3fr!important;gap:clamp(30px,5.5vw,90px)!important;align-items:start!important;padding-bottom:clamp(10px,1.3vw,16px)!important}
+footer .f-desc{max-width:48ch!important;margin-bottom:6px!important}
+footer .f-brandrow{margin-bottom:11px!important}
+footer .f-col h4{margin-bottom:9px!important}
+footer .f-col>a{margin-bottom:6px!important}
+footer .f-hours{margin:4px 0 8px!important}
+footer .f-bot{padding-top:9px!important}
+</style>
+
+
+<style id="patch-subglass">
+/* Transparent frosted-glass dropdown (see-through) */
+#nav .sub{
+  background:rgba(255,255,255,0.42)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.3)!important;backdrop-filter:blur(20px) saturate(1.3)!important;
+  border:1px solid rgba(255,255,255,0.55)!important;
+  box-shadow:0 22px 46px -18px rgba(28,26,58,0.32),0 2px 8px rgba(28,26,58,0.08)!important;
+  border-radius:14px!important;
+}
+#nav .sub a{color:#22222f!important;font-weight:600!important}
+#nav .sub a:hover{background:rgba(255,255,255,0.45)!important;color:#000!important}
+#nav .sub::before{display:none!important}
+#nav .sub::after{background:rgba(255,255,255,0.42)!important;border-left-color:rgba(255,255,255,0.55)!important;border-top-color:rgba(255,255,255,0.55)!important}
 </style>
 </body>
 </html>

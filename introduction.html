@@ -1899,19 +1899,20 @@ t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})
 </script>
 
 
-<style id="patch-subconsistent">
-/* Consistent dropdown: solid dark-violet glass on every page, independent of backdrop */
+
+<style id="patch-subglass">
+/* Transparent frosted-glass dropdown (see-through) */
 #nav .sub{
-  background:linear-gradient(168deg,#332c64 0%,#211b40 100%)!important;
-  border:1px solid rgba(255,255,255,.14)!important;
-  box-shadow:0 24px 48px -16px rgba(6,4,22,.6),0 0 0 1px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.08)!important;
-  -webkit-backdrop-filter:blur(14px)!important;backdrop-filter:blur(14px)!important;
-  border-radius:13px!important;
+  background:rgba(255,255,255,0.42)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.3)!important;backdrop-filter:blur(20px) saturate(1.3)!important;
+  border:1px solid rgba(255,255,255,0.55)!important;
+  box-shadow:0 22px 46px -18px rgba(28,26,58,0.32),0 2px 8px rgba(28,26,58,0.08)!important;
+  border-radius:14px!important;
 }
-#nav .sub a{color:rgba(255,255,255,.85)!important}
-#nav .sub a:hover{background:rgba(255,255,255,.12)!important;color:#ffffff!important}
-#nav .sub::after{background:#332c64!important;border-left-color:rgba(255,255,255,.14)!important;border-top-color:rgba(255,255,255,.14)!important}
-#nav .sub::before{background:linear-gradient(90deg,var(--teal),var(--lime))!important}
+#nav .sub a{color:#22222f!important;font-weight:600!important}
+#nav .sub a:hover{background:rgba(255,255,255,0.45)!important;color:#000!important}
+#nav .sub::before{display:none!important}
+#nav .sub::after{background:rgba(255,255,255,0.42)!important;border-left-color:rgba(255,255,255,0.55)!important;border-top-color:rgba(255,255,255,0.55)!important}
 </style>
 </body>
 </html>
