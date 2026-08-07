@@ -1147,7 +1147,7 @@ footer .wrap{max-width:940px!important;margin:0 auto}
     <nav id="nav">
       <ul>
         <li>
-          <a role="button" tabindex="0" data-en="Home" data-ko="홈">Home</a>
+          <a href="index.html" data-en="Home" data-ko="홈">Home</a>
           <ul class="sub">
             <li><a href="index.html#top" data-en="Overview" data-ko="개요">Overview</a></li>
             <li><a href="index.html#network" data-en="Global Network" data-ko="글로벌 네트워크">Global Network</a></li>
@@ -1156,7 +1156,7 @@ footer .wrap{max-width:940px!important;margin:0 auto}
           </ul>
         </li>
         <li>
-          <a role="button" tabindex="0" data-en="Introduction" data-ko="회사소개">Introduction</a>
+          <a href="introduction.html" data-en="Introduction" data-ko="회사소개">Introduction</a>
           <ul class="sub">
             <li><a href="introduction.html#about" data-en="About SHI" data-ko="회사 소개">About SHI</a></li>
             <li><a href="introduction.html#solutions" data-en="Solutions" data-ko="사업영역">Solutions</a></li>
@@ -1166,7 +1166,7 @@ footer .wrap{max-width:940px!important;margin:0 auto}
           </ul>
         </li>
         <li>
-          <a role="button" tabindex="0" data-en="Products" data-ko="제품">Products</a>
+          <a href="products.html" data-en="Products" data-ko="제품">Products</a>
           <ul class="sub">
             <li><a href="products.html" data-en="All Products" data-ko="전체 제품">All Products</a></li>
             <li><a href="products.html#machinery" data-en="Machinery" data-ko="기계 설비">Machinery</a></li>
@@ -1954,6 +1954,28 @@ html{scroll-snap-type:y proximity!important}
 @media(prefers-reduced-motion:reduce){#pageEnter{display:none!important}.cover-photo-contact .hero-copy>*{opacity:1!important;transform:none!important;animation:none!important}}
 </style>
 
+<style id="leave-nav-css">
+html.leaving-nav::before{content:"";position:fixed;inset:0;background:#ffffff;z-index:100000;opacity:0;pointer-events:none;animation:leaveNav .2s ease forwards}
+@keyframes leaveNav{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){html.leaving-nav::before{display:none}}
+</style>
+<script id="leave-nav-js">
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a) return;
+    if(a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button) return;
+    var href=a.getAttribute('href')||'';
+    if(/^(https?:|\/\/|mailto:|tel:|#)/.test(href)) return;
+    if(!/\.html($|[#?]|$)/.test(href)) return;
+    var here=location.pathname.split('/').pop()||'index.html';
+    var target=href.split('#')[0].split('?')[0].split('/').pop();
+    if(!target||target===here) return;
+    e.preventDefault();
+    document.documentElement.classList.add('leaving-nav');
+    setTimeout(function(){ window.location.href=href; }, 200);
+  }, true);
+})();
+</script>
 </body>
 
 </html>
