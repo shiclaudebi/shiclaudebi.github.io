@@ -2813,6 +2813,27 @@ footer .f-name{text-transform:uppercase!important;letter-spacing:.02em!important
 #pdplb .ph-info .bstat b span{font-size:inherit!important;font-weight:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important;letter-spacing:inherit!important;line-height:inherit!important}
 </style>
 <style id="patch-footer-align">footer .wrap{max-width:1260px!important;margin:0 auto!important}</style>
+
+<style id="leave-to-contact-css">
+html.leaving-to-contact::before{content:"";position:fixed;inset:0;background:#ffffff;z-index:99999;opacity:0;pointer-events:none;animation:leaveCover .2s ease forwards}
+@keyframes leaveCover{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){html.leaving-to-contact::before{display:none}}
+</style>
+<script id="leave-to-contact-js">
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href]'); if(!a) return;
+    if(a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey) return;
+    var href=a.getAttribute('href')||'';
+    if(/contact\.html($|[#?])/.test(href)){
+      e.preventDefault();
+      document.documentElement.classList.add('leaving-to-contact');
+      setTimeout(function(){ window.location.href=href; }, 200);
+    }
+  }, true);
+})();
+</script>
+
 </body>
 
 </html>
