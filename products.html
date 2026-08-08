@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-lang="en">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXN76PZ0ET"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QXN76PZ0ET');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PT. Seo Heung Indoraya — Total Solution Provider</title>
@@ -1066,7 +1075,7 @@ footer .wrap{max-width:940px!important;margin:0 auto}
     </nav>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" id="btn-en" aria-pressed="true">EN</button>
-      <button type="button" id="btn-ko" aria-pressed="false">한국어</button>
+      <button type="button" id="btn-ko" aria-pressed="false">KR</button>
     </div>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -2261,6 +2270,22 @@ html{scroll-snap-type:y proximity!important}
       prev=brands.querySelector('.brands-nav.prev');
   if(next) next.addEventListener('click',function(){ measure(); boost+=260; });   /* nudge right, follows arrow */
   if(prev) prev.addEventListener('click',function(){ measure(); boost-=260; });   /* nudge left */
+})();
+</script>
+
+<script id="ga-events">
+(function(){
+  function ev(n,p){ if(typeof gtag==='function') gtag('event', n, p||{}); }
+  document.addEventListener('click', function(e){
+    var t=e.target;
+    var a=t.closest && t.closest('a,button'); if(!a) return;
+    if(a.id==='btn-en') ev('language_switch',{language:'en'});
+    if(a.id==='btn-ko') ev('language_switch',{language:'kr'});
+    var href=(a.getAttribute && a.getAttribute('href'))||'';
+    if(/contact\.html/.test(href)) ev('contact_click',{label:(a.textContent||'').trim().slice(0,40)});
+    var prod=t.closest && t.closest('.prod');
+    if(prod){ var m=((prod.getAttribute('href')||'').match(/item=([\w-]+)/)); ev('product_open',{category:m?m[1]:'unknown'}); }
+  }, true);
 })();
 </script>
 
